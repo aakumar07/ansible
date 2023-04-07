@@ -1,0 +1,40 @@
+---
+ - name: creating ec2 instance using asnbile playbook
+   hosts: localhost
+   connection: local
+   gather_facts: False
+   become: False
+   tags: ansible
+   
+   vars:
+     Name: myinstance
+     keypair: devops
+     instance_type: t2.micro
+     image: ami-079a2a9ac6ed876fc
+     wait: yes
+     assign_public_ip: yes
+     count: 1
+     region: ap-northeast-1
+     group_id: sg-0352db459f8387048
+     vpc_subnet_id: subnet-0372cb5201d1c4b56
+     aws_access_key: 'AKIATKODKGPABCSABYXU'
+     aws_secret_key: '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'
+     
+   tasks:
+    - pip:
+       name: boto
+    - name: Register Ec2 Instance
+      local_action: ec2
+                    Name={{ Name }}
+                    keypair={{ keypair }}
+                    instance_type={{ instance_type }}
+                    image={{ image }}
+                    wait=true
+                    count= {{ count }}
+                    assign_public_ip=true
+                    region={{ region }}
+                    group_id={{ group_id }}
+                    vpc_subnet_id={{ vpc_subnet_id }}
+                    aws_access_key={{ aws_access_key }}
+                    aws_secret_key={{ aws_secret_key }}
+        register: ec2
