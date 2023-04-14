@@ -1,0 +1,37 @@
+---
+ - name: Creating  instance using yml
+   hosts: localhost
+   connection: local
+   gather_facts: False
+   become: False
+   
+   vars:
+     image: ami-069aabeee6f53e7bf
+     instance_type: t2.micro
+     keypair: Aws_Key
+     wait: yes
+     assign_public_ip: yes
+     count: 1
+     region: us-east-1
+     group_id: sg-07e02fb5ea8b393c5
+     vpc_subnet_id: subnet-0688dbe8caea24a85
+     aws_access_key: 'AKIATKODKGPAJDIF7SUP'
+     aws_secret_key: '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'
+     
+   tasks:
+    - pip:
+       name: boto
+    - name: Configuring  instance
+      local_action: ec2
+                     image={{ image }}
+                     instance_type={{ instance_type }}
+                     keypair={{ keypair }}
+                     wait=true
+                     count={{ count }}
+                     region={{ region }}
+                     group_id={{ group_id }}
+                     assign_public_ip=true
+                     vpc_subnet_id={{ vpc_subnet_id }}
+                     aws_access_key={{ aws_access_key }}
+                     aws_secret_key={{ aws_secret_key }}
+      register: ec2      
