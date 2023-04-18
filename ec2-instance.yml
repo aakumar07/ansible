@@ -3,7 +3,7 @@
    hosts: localhost
    connection: local
    gather_facts: False
-   become: False
+   become: true
    
    vars:
      image: ami-069aabeee6f53e7bf
@@ -15,8 +15,8 @@
      region: us-east-1
      group_id: sg-07e02fb5ea8b393c5
      vpc_subnet_id: subnet-0688dbe8caea24a85
-     aws_access_key: 'AKIATKODKGPAJDIF7SUP'
-     aws_secret_key: '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'
+     aws_access_key: 'AKIATKODKGPAPTZPOG2I'
+     aws_secret_key: '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'
      
    tasks:
     - pip:
