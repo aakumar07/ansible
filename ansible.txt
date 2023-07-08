@@ -1,7 +1,0 @@
-yum install python-pip
-
-
-pip install boto
-
-aws configure
-
