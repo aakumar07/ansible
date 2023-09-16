@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: mygroup
   gather_facts: no
   remote_user: ec2-user
   tasks:
