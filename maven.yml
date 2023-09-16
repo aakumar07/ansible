@@ -1,5 +1,5 @@
 ---
-- hosts: n1
+- hosts: n2
   become: true
   tasks:
     - name: Installing wget
