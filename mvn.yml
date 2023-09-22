@@ -1,0 +1,6 @@
+---
+ - hosts: n1
+   become: true
+   tasks:
+    - name: Exuting the script
+      script: /var/lib/jenkins/workspace/ans-job/mvn.sh
