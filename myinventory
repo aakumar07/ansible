@@ -1,9 +1,7 @@
-n1 ansible_host=172.31.33.25
-n2 ansible_host=172.31.46.88
+n1 ansible_host=172.31.33.51
 
 [mygroup]
 n1
-n2
 
 [allservers:children]
 mygroup
