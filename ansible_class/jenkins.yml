@@ -1,0 +1,6 @@
+---
+ - hosts: node1
+   become: true
+   tasks:
+    - name: Installing Jenkins
+      script: /home/ec2-user/ansible/ansible_class/jenkins.sh 
